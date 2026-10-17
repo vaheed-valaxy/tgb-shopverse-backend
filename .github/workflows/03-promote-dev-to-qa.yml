@@ -16,7 +16,6 @@ env:
   RUNS_ON: ubuntu-latest
 
 jobs:    
-
   set-variables:
     runs-on: ubuntu-latest
     outputs:
