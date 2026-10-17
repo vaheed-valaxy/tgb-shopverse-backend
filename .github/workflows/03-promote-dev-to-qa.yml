@@ -32,8 +32,8 @@ jobs:
           
           
   promote-dev-to-qa:
-    uses: vaheed-valaxy/central-github-actions/.github/workflows/reusable-promote-dev-to-qa.yml@main
     needs: set-variables
+    uses: vaheed-valaxy/central-github-actions/.github/workflows/reusable-promote-dev-to-qa.yml@main
     with:
       service-name: backend
       runner: ${{ needs.set-variables.outputs.runs-on }}
