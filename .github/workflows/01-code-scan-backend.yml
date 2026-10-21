@@ -18,10 +18,28 @@ on:
 # ============================================================
 
 env:
+  RUNS_ON: shopverse-dev-runners         # ubuntu-latest
   SERVICE_NAME: backend
   TARGET_BRANCH: develop
 
 jobs:
+
+  # ==========================================================
+  # JOB 0 — Set Variables
+  # ==========================================================
+  Set-Variables-Job:
+    name: Set Variables
+    runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.set-variables.outputs.runner }}
+    steps:
+      - name: Set Runner
+        id: set-variables
+        env:
+          RUNNER: ${{ env.RUNS_ON }}
+        run: |
+          echo "runner=$RUNNER" >> "$GITHUB_OUTPUT"
+          
 
   # ==========================================================
   # JOB 1 — Read workflow configuration
@@ -29,7 +47,8 @@ jobs:
 
   Config-Job:
     name: Load workflow configuration
-    runs-on: ubuntu-latest
+    needs: Set-Variables-Job
+    runs-on: ${{ needs.Set-Variables-Job.outputs.runner }} 
 
     outputs:
       service_name: ${{ steps.config.outputs.service_name }} 
@@ -64,7 +83,9 @@ jobs:
   # ==========================================================
 
   Code-Scan-Job:
-    needs: Config-Job
+    needs: 
+      - Set-Variables-Job
+      - Config-Job
 
     uses: ./.github/workflows/_go-code-scan.yml
 
@@ -75,7 +96,7 @@ jobs:
 
     with:
       service-name: ${{ needs.Config-Job.outputs.service_name }}
-      runner: ubuntu-latest
+      runner: ${{ needs.Set-Variables-Job.outputs.runner }}           
 
       gitleaks-scan: true
 
@@ -98,9 +119,10 @@ jobs:
 
   Create-PR-Job:
     name: Create PR to develop branch
-    runs-on: ubuntu-latest
+    runs-on: ${{ needs.Set-Variables-Job.outputs.runner }}
 
     needs:
+      - Set-Variables-Job
       - Config-Job
       - Code-Scan-Job
 
