@@ -32,7 +32,7 @@ jobs:
           echo "aws-ecr-role-arn=$AWS_ECR_ROLE_ARN" >> "$GITHUB_OUTPUT"
           
           
-  promote-dev-to-qa:
+  Promote-DEV-to-QA-Job:
     needs: Set-Variables-Job
     uses: vaheed-valaxy/central-github-actions/.github/workflows/reusable-promote-dev-to-qa.yml@main
     with:
