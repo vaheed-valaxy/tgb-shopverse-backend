@@ -18,7 +18,7 @@ on:
 # ============================================================
 
 env:
-  RUNS_ON: shopverse-dev-runners         # ubuntu-latest
+  RUNS_ON: shopverse-backend-runners         # ubuntu-latest
   
   SERVICE_NAME: backend
   TARGET_BRANCH: develop
