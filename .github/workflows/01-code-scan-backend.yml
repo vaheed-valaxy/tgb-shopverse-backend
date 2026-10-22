@@ -199,7 +199,7 @@ jobs:
           gh pr create \
             --repo "${GITHUB_REPOSITORY}" \
             --head "${SOURCE_BRANCH}" \
-            --base develop \
+            --base "${TARGET_BRANCH}" \
             --title "PR: ${SOURCE_BRANCH} -> ${TARGET_BRANCH}" \
             --body "$(cat <<EOF
           ## Automated Pull Request
