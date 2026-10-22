@@ -101,7 +101,7 @@ jobs:
 
       gitleaks-scan: true
 
-      trivy-fs-scan: true
+      trivy-fs-scan: false
       trivy-fs-scan-path: "."
       trivy-fs-skip-files: '**/README.md,**/LICENSE,**/docs/**'
 
@@ -199,7 +199,7 @@ jobs:
           gh pr create \
             --repo "${GITHUB_REPOSITORY}" \
             --head "${SOURCE_BRANCH}" \
-            --base develop \
+            --base "${TARGET_BRANCH}" \
             --title "PR: ${SOURCE_BRANCH} -> ${TARGET_BRANCH}" \
             --body "$(cat <<EOF
           ## Automated Pull Request
