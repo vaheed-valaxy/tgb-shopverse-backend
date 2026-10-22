@@ -34,7 +34,7 @@ jobs:
     outputs:
       runner: ${{ steps.set-variables.outputs.runner }}
     steps:
-      - name: Set Runner
+      - name: Set Variables
         id: set-variables
         env:
           RUNNER: ${{ env.RUNS_ON }}
