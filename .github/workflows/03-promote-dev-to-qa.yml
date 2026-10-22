@@ -28,7 +28,7 @@ jobs:
         env: 
           AWS_ECR_ROLE_ARN: ${{ env.RUNS_ON == 'ubuntu-latest' && vars.AWS_ECR_ROLE_ARN || '' }}
         run: |
-          echo "runs-on=$RUNS_ON" >> "$GITHUB_OUTPUT"
+          echo "runner=$RUNS_ON" >> "$GITHUB_OUTPUT"
           echo "aws-ecr-role-arn=$AWS_ECR_ROLE_ARN" >> "$GITHUB_OUTPUT"
           
           
