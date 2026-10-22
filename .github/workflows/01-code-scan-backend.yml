@@ -209,7 +209,7 @@ jobs:
           **Service:** \`${SVC}\`
           **Proposed By:** \`${ACTOR}\`
           **Source branch:** \`${SOURCE_BRANCH}\`
-          **Target branch:** \`develop\`
+          **Target branch:** \`${TARGET_BRANCH}\`
           **Workflow run:** ${SERVER_URL}/${REPOSITORY}/actions/runs/${RUN_ID} 
 
           ### Security checks passed
