@@ -152,7 +152,7 @@ jobs:
           echo "--------------------------------------------------"
           echo "Service       : ${SVC}"
           echo "Source Branch : ${SOURCE_BRANCH}"
-          echo "Target Branch : develop"
+          echo "Target Branch : ${TARGET_BRANCH}"
           echo "=================================================="
 
           # --------------------------------------------------
