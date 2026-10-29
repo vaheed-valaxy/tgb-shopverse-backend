@@ -45,6 +45,9 @@ jobs:
           docker build -t "$IMAGE_WITH_TAG" .
 
           echo "IMAGE=$IMAGE_WITH_TAG" >> "$GITHUB_ENV"
+          echo "Docker Image built successfully"
+
+          docker images || true
 
       # - name: Configure AWS credentials (OIDC)
       #   uses: aws-actions/configure-aws-credentials@v4
