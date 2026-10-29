@@ -110,11 +110,13 @@ jobs:
           
       - name: Set Variables
         id: set-variables
+        shell: bash
         env:
           # AWS_ECR_ROLE_ARN: ${{ runner.environment == 'github-hosted' && vars.AWS_ECR_ROLE_ARN || '' }}
           AWS_ECR_ROLE_ARN: ${{ env.RUNS_ON == 'ubuntu-latest' && vars.AWS_ECR_ROLE_ARN || '' }}
           # ECR_REGISTRY: "${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com"
         run: |
+          set -euo pipefail
           ECR_REGISTRY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
           
           echo "runner=$RUNS_ON" >> "$GITHUB_OUTPUT"
