@@ -42,7 +42,7 @@ on:
         description: "Trivy Version"
         required: false
         type: string
-        default: "v0.72.0"
+        default: ""    # "v0.72.0"
 
       trivy-fs-scan-path:
         description: "Trivy FS path to scan"
@@ -84,6 +84,12 @@ on:
         required: false
         type: boolean
         default: false
+
+      trivy-dockerfile-scan-version: 
+        description: "Trivy Version"
+        required: false
+        type: string
+        default: ""    # "v0.72.0"
 
       dockerfile:
         description: "Path to Dockerfile"
@@ -273,8 +279,10 @@ jobs:
 
       dockerfile: ${{ inputs.dockerfile }}
 
-      hadolint-dockerfile-scan: ${{ inputs.hadolint-dockerfile-scan }}     
-      trivy-dockerfile-scan: ${{ inputs.trivy-dockerfile-scan }}   
+      hadolint-dockerfile-scan: ${{ inputs.hadolint-dockerfile-scan }}  
+      
+      trivy-dockerfile-scan: ${{ inputs.trivy-dockerfile-scan }}
+      trivy-dockerfile-scan-version: ${{ inputs.trivy-dockerfile-scan-version }}
       
       opa-conftest-dockerfile-scan: ${{ inputs.opa-conftest-dockerfile-scan }}
       opa-policy: ${{ inputs.opa-policy }}
