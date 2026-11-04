@@ -26,7 +26,7 @@ on:
         type: boolean
         default: false
 
-      trivy-version:
+      trivy-fs-scan-version:
         description: "Trivy Version"
         required: false
         type: string
@@ -93,7 +93,7 @@ jobs:
     with:
       service-name: ${{ inputs.service-name }}
       runner: ${{ inputs.runner }}
-      trivy-version: ${{ inputs.trivy-version }}
+      trivy-version: ${{ inputs.trivy-fs-scan-version }}
       trivy-fs-scan-path: ${{ inputs.trivy-fs-scan-path }}
       trivy-fs-skip-files: ${{ inputs.trivy-fs-skip-files }}
 
