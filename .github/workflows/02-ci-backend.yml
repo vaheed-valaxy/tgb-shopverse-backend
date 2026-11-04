@@ -153,7 +153,7 @@ jobs:
       gitleaks-scan: true
       
       trivy-fs-scan: true
-      trivy-version: "v0.72.0"
+      trivy-fs-scan-version: "v0.72.0"
       trivy-fs-scan-path: "."
       trivy-fs-skip-files: '**/README.md,**/LICENSE,**/docs/**'
       
@@ -169,7 +169,10 @@ jobs:
       dockerfile: Dockerfile
             
       hadolint-dockerfile-scan: true
+      
       trivy-dockerfile-scan: true
+      trivy-dockerfile-scan-version: "v0.72.0"
+      
       opa-conftest-dockerfile-scan: false
 
       # =========================================================================
