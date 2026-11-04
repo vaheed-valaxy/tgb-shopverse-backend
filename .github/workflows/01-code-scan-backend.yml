@@ -102,7 +102,7 @@ jobs:
       gitleaks-scan: true
 
       trivy-fs-scan: true
-      trivy-version: "v0.72.0"
+      # trivy-version: "v0.72.0"
       trivy-fs-scan-path: "."
       trivy-fs-skip-files: '**/README.md,**/LICENSE,**/docs/**'
 
