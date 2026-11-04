@@ -251,7 +251,7 @@ jobs:
       gitleaks-scan: ${{ inputs.gitleaks-scan }}
       
       trivy-fs-scan: ${{ inputs.trivy-fs-scan }}
-      trivy-version: ${{ inputs.trivy-fs-scan-version }}
+      trivy-fs-scan-version: ${{ inputs.trivy-fs-scan-version }}
       trivy-fs-scan-path: ${{ inputs.trivy-fs-scan-path }}
       trivy-fs-skip-files: ${{ inputs.trivy-fs-skip-files }}
       
